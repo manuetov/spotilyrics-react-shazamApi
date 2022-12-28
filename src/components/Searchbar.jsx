@@ -28,8 +28,8 @@ const Searchbar = () => {
           name="search-field"
           autoComplete="off"
           id="search-field"
-          className="flex-1 bg-transparent border-none placeholder-gray-500 outline-none text-base text-white p-4"
-          placeholder="Search"
+          className="flex-1 bg-transparent bg-fixed border-none placeholder-lime-500 outline-none text-base text-white p-2"
+          placeholder="Buscar"
           type="search"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}

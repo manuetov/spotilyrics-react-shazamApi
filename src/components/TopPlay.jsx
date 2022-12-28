@@ -22,9 +22,9 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
             {song?.title}
           </p>
         </Link>
-        <Link to={`/artists/${song?.artists[0].adamid}`}>
+        <Link to={`/artists/${song[0]?.artists[0].adamid}`}>
           <p className="text-base text-gray-300 mt-1">
-            {song?.subtitle}
+            {song[0]?.subtitle}
           </p>
         </Link>
       </div>
@@ -39,8 +39,7 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
   </div>
 );
 
-
-const TopPlay = () => {
+function TopPlay() {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data } = useGetTopChartsQuery();
@@ -82,8 +81,7 @@ const TopPlay = () => {
               isPlaying={isPlaying}
               activeSong={activeSong}
               handlePauseClick={handlePauseClick}
-              handlePlayClick={() => handlePlayClick(song, i)}
-            />
+              handlePlayClick={() => handlePlayClick(song, i)} />
           ))}
         </div>
       </div>
@@ -111,7 +109,7 @@ const TopPlay = () => {
               style={{ width: '25%', height: 'auto' }}
               className="shadow-lg rounded-full animate-slideright"
             >
-              <Link to={`/artists/${artist?.artists[0].adamid}`}>
+              <Link to={`/artists/${artist[0]?.artists.adamid}`}>
                 <img src={artist?.images?.background} alt="Name" className="rounded-full w-full object-cover" />
               </Link>
             </SwiperSlide>
@@ -120,6 +118,6 @@ const TopPlay = () => {
       </div>
     </div>
   );
-};
+}
 
 export default TopPlay;
